@@ -1,3 +1,4 @@
+from collections import Counter
 from itertools import combinations
 
 
@@ -5,14 +6,12 @@ def solve_part_1(puzzle_input: str):
     excactlyTwoOfAnyKind, excatlyThreeOfAnyKind = 0, 0
 
     for boxId in puzzle_input.split('\n'):
-        letterCount = dict()  # e.g.: {'a': 1, 'b': 1, 'c': 2, ... }
-        for letter in boxId:
-            letterCount[letter] = letterCount.get(letter, 0) + 1
-        
-        letterCountValues = letterCount.values()  # Contains only the counts of same letters
-        if 2 in letterCountValues:
+        # Get counts of same letters:
+        letterCounts = Counter(boxId).values() # Example 'Hello' => 1, 1, 2, 1 (as 'dict_values')
+
+        if 2 in letterCounts:
             excactlyTwoOfAnyKind += 1
-        if 3 in letterCountValues:
+        if 3 in letterCounts:
             excatlyThreeOfAnyKind += 1
     
     return excactlyTwoOfAnyKind * excatlyThreeOfAnyKind
