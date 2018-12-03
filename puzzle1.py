@@ -1,5 +1,5 @@
 def solve_part_1(puzzle_input: str):
-    return sum(map(int, puzzle_input.split('\n')))
+    return sum(map(int, puzzle_input.splitlines()))
 
 def solve_part_2(puzzle_input: str):
     accumulatedFrequencies = set([0])

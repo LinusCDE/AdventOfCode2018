@@ -5,7 +5,7 @@ from itertools import combinations
 def solve_part_1(puzzle_input: str):
     excactlyTwoOfAnyKind, excatlyThreeOfAnyKind = 0, 0
 
-    for boxId in puzzle_input.split('\n'):
+    for boxId in puzzle_input.splitlines():
         # Get counts of same letters:
         letterCounts = Counter(boxId).values() # Example 'Hello' => 1, 1, 2, 1 (as 'dict_values')
 
@@ -18,7 +18,7 @@ def solve_part_1(puzzle_input: str):
 
 
 def solve_part_2(puzzle_input: str):
-    for firstBoxId, secondBoxId in combinations(puzzle_input.split('\n'), 2):
+    for firstBoxId, secondBoxId in combinations(puzzle_input.splitlines(), 2):
 
         # Check if more than 1 differing letter is contained
         differingLetters = 0
