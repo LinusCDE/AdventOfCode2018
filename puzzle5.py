@@ -16,8 +16,8 @@ def react_polymers(polymerList: list) -> int:
         polyA, polyB = polymerList[index], polymerList[index + 1]
         # Check for opposite polarity:
         if polyA != polyB and polyA.lower() == polyB.lower():
-            polymerList.pop(index)
-            polymerList.pop(index)
+            del polymerList[index]
+            del polymerList[index]
             polymerSize -= 2
             # Go back one before this is removed to check
             # if a new pair was created that can get removed:
